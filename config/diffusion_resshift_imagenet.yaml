@@ -1,0 +1,57 @@
+seed_everything: 4141910080
+trainer:
+  accelerator: gpu
+  strategy: ddp
+  devices: 2
+  num_nodes: 1
+  precision: 16-mixed
+  accumulate_grad_batches: 4
+  max_epochs: -1
+  fast_dev_run: false
+  min_epochs: null
+  max_steps: 200_000
+  min_steps: null
+  max_time: null
+  limit_train_batches: null
+  limit_val_batches: null
+  limit_test_batches: 20
+  limit_predict_batches: 14
+  overfit_batches: 0.0
+  val_check_interval: null
+  check_val_every_n_epoch: 1
+  num_sanity_val_steps: null
+  log_every_n_steps: 5_000
+  enable_checkpointing: true
+  enable_progress_bar: false
+model:
+  vae_chkp: xvjiarui/ldm-vq-f4
+  base_channels: 128
+  base_channels_multiples:
+  - 1
+  - 2
+  - 4
+  - 4
+  n_layers: 2
+  n_heads: 4
+  use_cross_attn: False
+  pixel_shuffle: False
+  vae_quantization: True
+  dropout_rate: 0.0
+  scale_factor: 4
+  use_scale_shift_norm: False
+  timesteps: 15
+  scheduler_type: one_cycle
+  lr: 1e-4
+data:
+  class_path: data.SimpleDataModule
+  init_args:
+    data_dir: ../Imagenet/CLS-LOC/
+    train_img_list: ../Imagenet/train_filter_256.txt
+    valid_img_list: ../Imagenet/val_filter_256.txt
+    test_img_list: ../Imagenet/test_filter_256.txt
+    batch_size: 16
+    img_size: 256
+    mean: 0.5
+    std: 0.5
+    do_crop: True
+ckpt_path: 

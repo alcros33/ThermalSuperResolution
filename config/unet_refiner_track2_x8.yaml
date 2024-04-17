@@ -1,0 +1,56 @@
+seed_everything: 4141910080
+trainer:
+  accelerator: gpu
+  strategy: ddp
+  devices: 2
+  num_nodes: 1
+  precision: 16-mixed
+  accumulate_grad_batches: 4
+  max_epochs: 1000
+  fast_dev_run: false
+  min_epochs: null
+  max_steps: -1
+  min_steps: null
+  max_time: null
+  limit_train_batches: null
+  limit_val_batches: null
+  limit_test_batches: null
+  limit_predict_batches: null
+  overfit_batches: 0.0
+  val_check_interval: null
+  check_val_every_n_epoch: 5
+  num_sanity_val_steps: null
+  log_every_n_steps: 50
+  enable_checkpointing: true
+  enable_progress_bar: false
+model:
+  input_chs: 9
+  output_chs: 3 
+  base_channels: 64 
+  base_channels_multiples:
+  - 1
+  - 2 
+  apply_attention:
+  - False
+  - False
+  n_layers: 1
+  dropout_rate: 0.0 
+  lr: 1e-4
+  scheduler_type: one_cycle
+  n_heads: 4
+  scale_factor: 16
+data:
+  data_dir: ../thermalx16/thermal
+  splits:
+  - train
+  - val
+  - test
+  classes:
+  - LR_x8
+  - predicted_bad_x8
+  - visible
+  - GT
+  batch_size: 4
+  mean: 0.5
+  std: 0.5
+ckpt_path:

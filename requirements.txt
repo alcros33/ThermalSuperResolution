@@ -1,0 +1,11 @@
+torch
+torchvision
+transformers
+lightning
+torchmetrics[multimodal]
+diffusers[torch]
+pandas
+jsonargparse[signatures]>=4.26.1
+tensorboard
+opencv-python
+matplotlib
