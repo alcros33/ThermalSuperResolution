@@ -1,6 +1,6 @@
 # Thermal Super-Resolution using Diffusion Models
 
-This repository contains the implementation and pre-trained weights for the paper *Exploring the usage of diffusion models for thermal image super-resolution: a generic, uncertainty-aware approach for guided and non-guided schemes*.
+This repository contains the implementation and pre-trained weights for the paper [*Exploring the usage of diffusion models for thermal image super-resolution: a generic, uncertainty-aware approach for guided and non-guided schemes*](https://openaccess.thecvf.com/content/CVPR2024W/PBVS/papers/Cortes-Mendez_Exploring_the_Usage_of_Diffusion_Models_for_Thermal_Image_Super-resolution_CVPRW_2024_paper.pdf).
 
 ## Inference
 First download the checkpoints from the [releases](https://github.com/alcros33/ThermalSuperResolution/releases/tag/weights) tab
